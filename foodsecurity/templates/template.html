@@ -1,0 +1,83 @@
+<!DOCTYPE HTML5>
+<html>
+  <head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/template.css')}}">
+
+	{% if title %}
+      <title>Food Security - {{ title }}</title>
+  {% else %}
+      <title>Food Security</title>
+  {% endif %}
+  </head>
+
+  <body>
+    {% block info %}
+    {% endblock %}
+    <div class="nav nav-invisible">
+      <a 
+        href="https://foodsecurity.1234567890hihi.repl.co/" class="nav-link"
+      ><div class="nav-left icon-title">
+        <img src="{{url_for('static', filename='images/theta-black.jpg')}}" class="theta-icon  recolor-white">
+        <div class="nav-title title">Theta<br>Food Security</div>
+      </div></a>
+      {% block nav %}
+      {% endblock %}
+    </div>
+    <div>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}" style="margin: 5vh 5vw">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+      {% endwith %}
+    </div>
+    <div class="body">
+      {% block bodyContent %}{% endblock %}
+    </div>
+    <div>
+      <div class="footer-top icon-title">
+        <img src="{{url_for('static', filename='images/theta-black.jpg')}}" class="theta-footer-icon">
+        <div class="footer-title">Theta<br>Food Security</div>
+      </div>
+      <div class="footer-body">
+        <div class="footer-body-section">
+          <div class="footer-body-section-title">Contact</div>
+          <div class="footer-body-section-info">Email: thetafoodsecurity@gmail.com</div>
+          <div class="footer-body-section-info">More</div>
+        </div>
+        <div class="footer-body-section">
+          <div class="footer-body-section-title">Customers</div>
+          <div class="footer-body-section-info">Browse Items</div>
+          <div class="footer-body-section-info">See Item Information</div>
+          <div class="footer-body-section-info">Purchase and Pickup</div>
+        </div>
+        <div class="footer-body-section">
+          <div class="footer-body-section-title">Store Owners</div>
+          <div class="footer-body-section-info">Make an Account</div>
+          <div class="footer-body-section-info">View Market Items</div>
+          <div class="footer-body-section-info">View Items Sold</div>
+        </div>
+      </div>
+
+      <div class="footer-copyright">© 2020 by Gabriel Han, Timothy Oh, Erin Lee. All Rights Reserved</div>
+
+    </div>    
+    {% block scripts %}
+      
+    {% endblock %}
+  </body>
+
+</html>

@@ -1,0 +1,85 @@
+{% extends "template.html" %}
+
+{% block info %}
+  <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+{% endblock info %}
+
+{% block nav %}
+  <div class="nav-right">
+    <a href="#">About Us</a>
+    <a href="#">FAQ</a>
+    <a href="#">Contact Us</a>
+    {% if signedIn %}
+      <a href="/store">Account</a>
+    {% endif %}
+  </div>
+{% endblock nav%}
+
+{% block bodyContent %}
+
+<div class="image-height"></div>
+<img class="home-image" src="{{url_for('static', filename='images/food.jpg')}}">
+<div class="home-text">
+  <div class="home-title" data-fade="true">Get Ready To<br>Save Food</div>
+  <a href="#group-image"><div class="home-button">Learn More</div></a>
+</div>
+
+<!--Support your community-->
+<div class="top-white-group">
+  <img class="group-image" id="group-image" src="{{url_for('static', filename='images/community.jpg')}}">
+</div>
+<div class="support-text">
+  <div class="support-title">Support Your Community </div>
+  <div class="support-info">Today, millions of TONS of food are wasted every year, and a lot of that is due to the expiration of the selling date of food. Although restaurants can't sell these foods, they are still perfectly good to eat! Theta would love to make this less of a reality by making it easier for restaurants to give this food to those who need it, such as those on a budget or those that are hungry.</div>
+</div>
+
+<!--Be a Customer -->
+<div class="content-info-block customer" data-fade="true">
+  <div class="content ">
+    <h1>Be A Customer</h1>
+    <p>Buy healthy foods that are past their expiration date for a significant</p>
+    <a href="/zip"><div class="button">Browse food</div></a>
+  </div>
+    <img class="image" src="{{url_for('static', filename='images/customer.jpg')}}">
+</div>
+
+<!--Benefits of Theta-->
+<div class="benefits">
+  <h1 class="text-center pt-5 pb-5 benefits-title">Benefits of Theta</h1>
+  <div class="content">
+    <div class="benefit">
+      <img class="benefits-image" src="{{url_for('static', filename='images/fast.jpg')}}">
+      <p>We are fast</p>
+    </div>
+    <div class="benefit">
+      <img class="benefits-image" src="{{url_for('static', filename='images/easy.jpg')}}">
+      <p>We are easy to use</p>
+    </div>
+    <div class="benefit">
+      <img class="benefits-image" src="{{url_for('static', filename='images/effective.jpg')}}">
+      <p>We are extremely effective at doing what is necessary</p>
+    </div>
+    <div class="benefit">
+      <img class="benefits-image" src="{{url_for('static', filename='images/supportive.jpg')}}">
+      <p>Our customer support is off the charts</p>
+    </div>
+  </div>
+</div>
+
+<!--For Store Owners -->
+
+<div class="content-info-block store">
+  <img class="image" src="{{url_for('static', filename='images/store.jpg')}}">
+  <div class="content ">
+    <h1>For Store Owners</h1>
+    <p>Sell your foods that are still fresh but past their sell date.</p>
+    <a href="/signup"><div class="button">Sell Food</div></a>
+  </div>
+  
+</div>
+
+{% endblock bodyContent %}
+
+{% block scripts %}
+  
+{% endblock scripts %}

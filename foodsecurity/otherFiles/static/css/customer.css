@@ -1,0 +1,69 @@
+.name{
+  font-size: 25;
+  font-weight: bold;
+  font-family: "Varela Round";
+  color: black;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.img{
+  max-width: 100%;
+}
+.price{
+  color: black;
+  text-decoration: none;
+  margin-top: 20px;
+}
+.no-underline-a:hover{
+  text-decoration: none !important;
+}
+.sold-learn:hover{
+  text-decoration: underline !important;
+}
+.items{
+  background-color: #efefefff;
+  width: 350px;
+  margin: 20px;
+  padding: 30px;
+}
+.items:hover{
+  background-color: #d9d9d9ff;
+}
+.items-holder{
+  display: flex;
+  width: 65%;
+  margin: 0 5% 0 25%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.body{
+  min-height: 50vh;
+}
+
+.no-items{
+  padding-top: 20vh;
+  text-align: center;
+}
+.body{
+  display: flex;
+  justify-content: space-evenly;
+}
+.input{
+  border-radius: 20px;
+  border: 1px black solid;
+  width: 25%;
+  margin-left: 5%;
+  margin-top: 30px;
+  position: fixed;
+  top: 120px;
+  left: 0;
+  padding: 30px;
+}
+
+#map {
+  height: 200px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}

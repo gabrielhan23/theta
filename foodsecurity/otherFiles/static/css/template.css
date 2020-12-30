@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+.nav{
+  position: sticky;
+  top: 0;
+  width: 90vw;
+  left: 5vw;
+  height: 120px;
+  background-color: #93c47dff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+.theta-icon{
+  height: 100px;
+  margin-top: 10px;
+}
+.theta-footer-icon{
+  height: 35px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+.recolor-white{
+  filter: invert(100%);
+  
+}
+.nav-link a:hover{
+  justify-content: space-between;
+  height: 100%;
+  margin-left: 20px;
+  text-decoration: none;
+}
+.nav-left:hover{
+  text-decoration: none;
+}
+.nav-right{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+}
+.nav-title{
+  color: white;
+
+}
+.nav-right a{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20;
+  font-weight: 700;
+}
+.icon-title{
+  display: flex;
+  align-items: center;
+}
+.footer-top{
+  justify-content: flex-start;
+  border-bottom: 3px gray solid;
+  margin: 0 50px;
+}
+
+.title{
+  font-size: 25;
+  font-family: "Varela Round";
+  font-weight: bold;
+}
+
+.footer-title{
+  font-size: 11;
+  font-family: "Varela Round";
+  font-weight: bold;
+}
+
+.footer-copyright{
+  font-size: 10;
+  border-top: 3px gray solid;
+  font-family: Verdana, sans-serif;
+  padding: 10px;
+  margin: 0 50px;
+}
+
+.footer-body{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.footer-body-section{
+  padding: 30px 50px;
+  width: 400px;
+}
+.footer-body-section-title{
+  font-size: 20;
+  font-family: "Varela Round";
+  font-weight: bold;
+}
+.footer-body-section-info{
+  font-size: 15;
+  font-family: "Calibri";
+  font-style: italic;
+}

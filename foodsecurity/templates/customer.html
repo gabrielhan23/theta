@@ -1,0 +1,46 @@
+{% extends "template.html" %}
+
+{% block info %}
+  <link rel="stylesheet" href="{{url_for('static', filename='css/customer.css')}}">
+    <div id="address" class="d-none">{{store.addressNum}}+{{store.addressStreet}},+{{store.addressCity}},+CA</div>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLtjAn_nhq_RkDrbiXOLBQOxiXhpWJbS0&callback=initMap&libraries=&v=weekly" defer></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{{url_for('static', filename='js/map.js')}}"></script>
+{% endblock info %}
+
+{% block bodyContent %}
+{% set marketItems = namespace(value=0)  %}
+<div class="input">
+  <h3>Search a different Area?</h3>
+  <input type="text" id="zip" class="form-control form-control-lg mt-4" placeholder="e.g. 92459">
+  <div class="invalid-feedback" id="errors">
+  </div>
+  <button class="btn btn-outline-info mt-4 mb-3" onclick="move()">Send</button>
+  {% if store != "false" %}
+    <div id="map"></div>
+  {% endif %}
+</div>
+<div class="items-holder">
+  {% for item in items %}
+    <a class="no-underline-a" href="https://foodsecurity.1234567890hihi.repl.co/purchase/{{item.uuid}}">
+      <div class="items">
+        <div class="name">{{item.name}}</div>
+        <img class="img" src="{{url_for('static', filename='profile_pics/'+item.img_directory)}}">
+        <div class="price">${{item.cost}}</div>
+        <div class="sold-learn">Learn More</div>
+      </div>
+    </a>
+    {% set marketItems.value = marketItems.value +1 %}
+  {% endfor %}
+  {% if marketItems.value == 0 %}
+    <p class="no-items">No Items In This Zip Code.</p>
+  {% endif %}
+</div>
+
+{% endblock bodyContent %}
+
+{% block scripts %}
+<script src="{{url_for('static', filename='js/zipCode.js')}}"></script>
+
+{% endblock scripts %}

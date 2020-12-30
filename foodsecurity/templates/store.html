@@ -1,0 +1,66 @@
+{% extends "template.html" %}
+
+{% block info %}
+  <link rel="stylesheet" href="{{url_for('static', filename='css/store.css')}}">
+{% endblock info %}
+
+{% block nav %}
+<div class="nav-right">
+  <a href="#">Items Sold</a>
+  <a href="#item-pos">Items on Market</a>
+</div>
+{% endblock nav%}
+
+{% block bodyContent %}
+
+<h1>Items Sold</h1>
+<div class="items">
+  {% set soldItems = namespace(value=0)  %}
+  {% for item in items%}
+    {% if item.customer_name %}
+    <a class="no-underline-a">
+      <div class="sold-items">
+        <div class="sold-name mb-2">{{item.name}}</div>
+        <img class="sold-img" src="{{url_for('static', filename='profile_pics/'+item.img_directory)}}">
+        <!-- Put something here -->
+        <div class="sold-price mt-2">Sold to {{item.customer_name}} for ${{item.cost}}</div>
+        <div class="sold-price mt-2">Pickup Time: {{item.pickupTime}}</div>
+        <div class="sold-learn">Learn More</div>
+      </div>
+    </a>
+      {% set soldItems.value = soldItems.value+1 %}
+    {% endif %}
+  {% endfor %}
+  {% if soldItems.value == 0 %}
+    <p>No Items Sold Yet.</p>
+  {% endif %}
+</div>
+
+<div id="item-pos"></div>
+<h1>Items on Market</h1>
+<a href="/addlisting"><div class="addlisting">Add Listing</div></a>
+<div class="items">
+  {% set marketItems = namespace(value=0)  %}
+  {% for item in items %}
+    {% if not item.customer_name %}
+      <a class="no-underline-a" href="editlisting/{{item.uuid}}">
+        <div class="sold-items mb-2">
+          <div class="sold-name">{{item.name}}</div>
+          <img class="sold-img" src="{{url_for('static', filename='profile_pics/'+item.img_directory)}}">
+          <!-- Put something here -->
+          <div class="sold-price mt-2">${{item.cost}}</div>
+          <div class="sold-learn">Learn More</div>
+        </div>
+      </a>
+      {% set marketItems.value = marketItems.value +1 %}
+    {% endif %}
+  {% endfor %}
+  {% if marketItems.value == 0 %}
+    <p>No Items On Market Yet.</p>
+  {% endif %}
+</div>
+
+{% endblock bodyContent %}
+
+{% block scripts %}
+{% endblock scripts %}

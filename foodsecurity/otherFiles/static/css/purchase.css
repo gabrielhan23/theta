@@ -1,0 +1,62 @@
+.image{
+  display: block;
+  max-width: 600px;
+  max-height: 600px;
+  width: auto;
+  height: auto;
+}
+.img-div{
+  width: 100%;
+
+}
+.content{
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 25px;
+}
+.right{
+  font-family: "Varela Round";
+  padding-top: 50px;
+}
+
+.food-title{
+  font-size: 50px;
+}
+
+.store-title{
+  font-size: 15px;
+  color: #71CB5F;
+}
+.store-title b{
+  color: #5FA751;
+}
+
+.label{
+  font-size: 20px;
+}
+
+.price{
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  font-size: 60px;
+  color: #e69500;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.price p{
+  font-size: 15px;
+  color: black;
+  margin: 0;
+  margin-right: 20px;
+}
+
+.info{
+  font-size: 20;
+}
+
+.info b{
+  padding-right: 5px;
+}

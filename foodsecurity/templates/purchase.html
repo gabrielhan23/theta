@@ -1,0 +1,84 @@
+{% extends "template.html" %}
+
+{% block info %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/purchase.css')}}">
+{% endblock info %}
+
+{% block nav %}
+{% endblock nav %}
+
+{% block bodyContent %}
+<div class="content">
+  <img class="image" src="{{url_for('static', filename='profile_pics/'+item.img_directory)}}">
+  <div class="right">
+    <div class="food-title"><b>{{item.name}}</b></div>
+    <div class="store-title"><b>Store: </b>{{store.name}}</div>
+
+    <div class="price"><p>Price: </p>${{item.cost}}</div>
+    <div class="info">
+      <b>Address: </b>
+      {{store.addressNum}}
+      {{store.addressStreet}}
+      {{store.addressCity}}
+      {{store.zipCode}}
+    </div>
+    <div class="info">
+      <b>Category: </b>
+      {{item.category}}
+    </div>
+    <div class="info">
+      <b>Weight: </b>
+      {{item.weight}} lbs
+    </div>
+    <div class="info">
+      <b>Expiration: </b>
+      {{item.expiration}}
+    </div>
+  </div>
+</div>
+<br>
+<form method="POST" action="" class="mt-3" style="padding: 0 5vw">
+  {{ form.hidden_tag() }}
+  <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Purchase Item</legend>
+      <div class="form-group">
+          {{ form.name.label(class="form-control-label") }}
+          {% if form.name.errors %}
+              {{ form.name(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                  {% for error in form.name.errors %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+          {% else %}
+              {{ form.name(class="form-control form-control-lg") }}
+          {% endif %}
+      </div>
+      <div class="form-group">
+          {{ form.pickupTimes.label(class="form-control-label") }}
+          {% if form.pickupTimes.errors %}
+              {{ form.pickupTimes(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                  {% for error in form.pickupTimes.errors %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+          {% else %}
+              {{ form.pickupTimes(class="form-control form-control-lg") }}
+          {% endif %}
+      </div>
+      </fieldset>
+  <div class="form-group">
+      {{ form.submit(class="btn btn-outline-info") }}
+  </div>
+  <small class="text-muted ml-2">
+      Have an item to sell?
+      <a href="https://foodsecurity.1234567890hihi.repl.co/signup">Signup Now</a>
+  </small>
+</form>
+
+
+{% endblock bodyContent %}
+
+{% block scripts %}
+{% endblock scripts %}

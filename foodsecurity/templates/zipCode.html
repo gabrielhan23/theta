@@ -1,0 +1,20 @@
+{% extends "template.html" %}
+
+{% block info %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/zipCode.css')}}">
+{% endblock info %}
+
+{% block bodyContent %}
+
+<h1>Please enter your Zip Code</h1>
+<div class="input">
+  <input type="text" id="zip" class="form-control form-control-lg" placeholder="e.g. 92459">
+  <div class="invalid-feedback" id="errors">
+  </div>
+  <button class="btn btn-outline-info mt-4" onclick="move()">Send</button>
+</div>
+{% endblock bodyContent %}
+
+{% block scripts %}
+<script src="{{url_for('static', filename='js/zipCode.js')}}"></script>
+{% endblock scripts %}
